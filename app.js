@@ -1,6 +1,6 @@
 
 Vue.component("messages", {
-    template: "<div style='border: solid; margin-top: 20px; width:400px;' v-show='isVisible'><h4>Message</h4> <p><slot></slot></p> <button @click=\"$emit('delete')\">Delete</button> <button @click='isVisible = false;'>hide</button></div>",
+    template: "<div style='border: solid; margin-top: 20px; width:400px;' v-show='isVisible'><h4>Message</h4> <p><slot></slot></p> <button @click='$emit(\"delete\")' >Delete</button> <button @click='isVisible = false;'>hide</button></div>",
     data(){
         return {
             isVisible : true
@@ -51,9 +51,11 @@ new Vue({
             
             console.log(this.showMsg);
         },
-        delete(message)
+        deleteMsg(message)
         {
-
+            let index = this.messages.indexOf(message);
+            this.messages.splice(index, 1)
+            this.aantalMsg = this.messages.length;
         },
         refresh()
         {
