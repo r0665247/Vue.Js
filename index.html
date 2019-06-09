@@ -7,9 +7,15 @@
   <body>
       <div id='app'>
           <input type="text" name="" id="message" v-model="message">
-        <button type="submit" @click="sumbit()" :disabled="disabled" >Submit</button>
-        <messages v-for="message in messages" >Task : {{message.task}} <br> Completed : {{message.complete}} <button @click="complete(message)">Complete</button></messages>
-      </div>
+        <button type="submit" @click="sumbit()" :disabled="disabled" >Submit</button><br>
+        {{aantalMsg}} <br>
+        <button  @click="showMessages()" v-if='!showMsg'>Show All Messages</button>
+        <button  @click="showMessages()" v-if='showMsg'>Hide All Messages</button>
+        <div v-if="showMsg">
+                <messages v-for="message in messages" @delete="delete(message)">Task : {{message.task}} <br> Completed : {{message.complete}} <button @click="complete(message)">Complete</button></messages>
+        </div>
+        
+        </div>
       <script src="app.js"></script>
     
        </body>
