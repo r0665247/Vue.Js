@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Vuejs</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+     </head>
+  <body>
+      <div id='app'>
+          <input type="text" name="" id="message" v-model="message">
+        <button type="submit" @click="sumbit()" :disabled="disabled" >Submit</button>
+        <messages v-for="message in messages" >Task : {{message.task}} <br> Completed : {{message.complete}} <button @click="complete(message)">Complete</button></messages>
+      </div>
+      <script src="app.js"></script>
+    
+       </body>
+</html>
