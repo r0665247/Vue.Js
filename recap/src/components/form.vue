@@ -30,7 +30,7 @@ export default {
       onSubmit()
       {
         if(this.index.trim().length !== 0 && this.year.trim().length !== 0){
-          this.$emit("posted" , {index : this.index , year : this.year});
+          //axios POST request
           this.index = "";
           this.year = "";
           this.error = "";
